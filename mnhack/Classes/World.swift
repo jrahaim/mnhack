@@ -10,12 +10,12 @@ import Foundation
 
 class World {
     static let shared = World()
-    let player: GameObject
+    let player: Player
     var floors = [Floor]()
     
     private init() {
         floors.append(Floor(type: .normal))
-        self.player = GameObject(position: Location2d(x:20, y:20), floor: 0, type: .player, appearence: "@")
+        self.player = Player(position: Location2d(x:20, y:20), floor: 0)
         
     }
     

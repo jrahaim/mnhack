@@ -13,9 +13,9 @@ class GameScene: SKScene {
     
     private var playerNode: SKNode?
     private var objectNodes = [SKNode]()
-    let squareSize = 10
-    let xOffset = -150
-    let yOffset = -150
+    let squareSize = 20
+    let xOffset = -500
+    let yOffset = -350
     
     func scenePoint(location: Location2d) -> CGPoint {
         return scenePoint(location.x, location.y)
@@ -29,6 +29,7 @@ class GameScene: SKScene {
         let world = World.shared
         let player = world.player
         let playerNode = SKLabelNode.init(text: player.appearence)
+        playerNode.fontSize = CGFloat(squareSize)
         playerNode.position = scenePoint(location: player.position)
         
         self.playerNode = playerNode
