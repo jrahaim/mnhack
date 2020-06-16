@@ -14,6 +14,10 @@
 		960E6BA224994E8A00F19DF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BA124994E8A00F19DF3 /* ViewController.swift */; };
 		960E6BA424994E8A00F19DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960E6BA324994E8A00F19DF3 /* Assets.xcassets */; };
 		960E6BA724994E8A00F19DF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960E6BA524994E8A00F19DF3 /* Main.storyboard */; };
+		960E6BB024994FD200F19DF3 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BAF24994FD200F19DF3 /* World.swift */; };
+		960E6BB32499502000F19DF3 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB22499502000F19DF3 /* GameObject.swift */; };
+		960E6BB5249950EA00F19DF3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB4249950EA00F19DF3 /* Location.swift */; };
+		960E6BB72499526100F19DF3 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB62499526100F19DF3 /* Floor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		960E6BA624994E8A00F19DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		960E6BA824994E8A00F19DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		960E6BA924994E8A00F19DF3 /* mnhack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mnhack.entitlements; sourceTree = "<group>"; };
+		960E6BAF24994FD200F19DF3 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		960E6BB22499502000F19DF3 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		960E6BB4249950EA00F19DF3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		960E6BB62499526100F19DF3 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 		960E6B9824994E8A00F19DF3 /* mnhack */ = {
 			isa = PBXGroup;
 			children = (
+				960E6BB124994FDC00F19DF3 /* Classes */,
 				960E6B9924994E8A00F19DF3 /* AppDelegate.swift */,
 				960E6B9B24994E8A00F19DF3 /* GameScene.sks */,
 				960E6B9D24994E8A00F19DF3 /* Actions.sks */,
@@ -70,6 +79,17 @@
 				960E6BA924994E8A00F19DF3 /* mnhack.entitlements */,
 			);
 			path = mnhack;
+			sourceTree = "<group>";
+		};
+		960E6BB124994FDC00F19DF3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				960E6BAF24994FD200F19DF3 /* World.swift */,
+				960E6BB22499502000F19DF3 /* GameObject.swift */,
+				960E6BB4249950EA00F19DF3 /* Location.swift */,
+				960E6BB62499526100F19DF3 /* Floor.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				960E6BB5249950EA00F19DF3 /* Location.swift in Sources */,
+				960E6BB32499502000F19DF3 /* GameObject.swift in Sources */,
 				960E6BA224994E8A00F19DF3 /* ViewController.swift in Sources */,
+				960E6BB72499526100F19DF3 /* Floor.swift in Sources */,
 				960E6BA024994E8A00F19DF3 /* GameScene.swift in Sources */,
+				960E6BB024994FD200F19DF3 /* World.swift in Sources */,
 				960E6B9A24994E8A00F19DF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
