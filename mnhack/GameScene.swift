@@ -12,7 +12,11 @@ import GameplayKit
 class GameScene: SKScene {
     
     private var playerNode: SKNode?
-    private var objectNodes = [SKNode]()
+    private var objectNodes = SKNode()
+    private var unlitNodes = SKNode()
+    private var litNodes = SKNode()
+    private var uiNodeds = SKNode()
+    private var currentFloorNumber = 0
     let squareSize = 20
     let xOffset = -500
     let yOffset = -350
@@ -34,6 +38,12 @@ class GameScene: SKScene {
         
         self.playerNode = playerNode
         self.addChild(playerNode)
+        self.addChild(objectNodes)
+        addStructureNodes()
+        self.addChild(unlitNodes)
+        self.addChild(litNodes)
+        self.addChild(uiNodeds)
+        lightVisible()
     }
     
     override func keyDown(with event: NSEvent) {
@@ -57,16 +67,63 @@ class GameScene: SKScene {
         if let moveDirection = move {
             // player tried to move
             let newLocation = player.position.pos(moveDirection)
-            if world.pathBlocked(floor: 0, location: newLocation) == false {
+            if world.pathBlocked(floor: currentFloorNumber, location: newLocation) == false {
                 player.position = newLocation
                 self.playerNode?.position = scenePoint(location: newLocation)
             }
         }
-        
+        unlitNodes.children.forEach() {
+            $0.alpha = 0.0
+        }
+        lightVisible()
+    }
+    
+    func lightVisible() {
+        let rays = PossiblyVisiblePoints.rays(distance: 3)
+        let floor = World.shared.floor(currentFloorNumber)
+        rays.forEach() {ray in
+            for i in (0..<ray.count) {
+                let offset = ray[i]
+                let pos = World.shared.player.position + offset
+                let nodes = self.unlitNodes.children.filter { (node) -> Bool in
+                    return node.position == scenePoint(pos.x, pos.y)
+                }
+                nodes.forEach() {
+                    $0.alpha = 1.0
+                }
+                let nodes2 = self.litNodes.children.filter { (node) -> Bool in
+                    return node.position == scenePoint(pos.x, pos.y)
+                }
+                nodes2.forEach() {
+                    $0.alpha = 1.0
+                }
+                if floor.structures[pos]?.blocksPath() == true {
+                    break
+                }
+            }
+        }
     }
     
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+}
+
+extension GameScene {
+    func addStructureNodes() {
+        let floor = World.shared.floor(currentFloorNumber)
+        floor.structures.forEach() {keyValue in
+            let (pos, structure) = keyValue
+            let node = SKLabelNode(text: structure.appearence)
+            node.fontSize = CGFloat(squareSize)
+            node.position = scenePoint(location: pos)
+            node.alpha = 0.0
+            if structure.type == .floor {
+                unlitNodes.addChild(node)
+            } else {
+                litNodes.addChild(node)
+            }
+        }
     }
 }

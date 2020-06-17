@@ -9,14 +9,12 @@
 import SpriteKit
 import GameplayKit
 
+
+
 enum GameObjectType {
     case player
     case alive
     case loot
-    case doorOpen
-    case doorClosed
-    case doorLocked
-    case wall
 }
 
 class GameObject {
@@ -34,8 +32,6 @@ class GameObject {
     
     func blocksPath() -> Bool {
         return self.type == .alive ||
-            self.type == .doorClosed ||
-            self.type == .doorLocked ||
-            self.type == .wall
+                self.type == .player
     }
 }

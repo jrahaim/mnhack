@@ -12,11 +12,16 @@ class World {
     static let shared = World()
     let player: Player
     var floors = [Floor]()
+    var visibilityMap = [Starburst]() // Array holding rays for given distances.
     
     private init() {
-        floors.append(Floor(type: .normal))
-        self.player = Player(position: Location2d(x:20, y:20), floor: 0)
-        
+        let firstFloor = Floor(type: .normal)
+        floors.append(firstFloor)
+        // this startung position needs to be based on the floor's stairs up.
+        self.player = Player(position: firstFloor.stairsUp ?? Location2d(x:20, y:20), floor: 0)
+        for distance in (0...10) {
+            visibilityMap.append(PossiblyVisiblePoints.rays(distance: distance))
+        }
     }
     
     func floor(_ floorNumber: Int) -> Floor {

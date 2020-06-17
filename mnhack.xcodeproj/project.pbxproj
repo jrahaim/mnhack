@@ -9,23 +9,22 @@
 /* Begin PBXBuildFile section */
 		960E6B9A24994E8A00F19DF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6B9924994E8A00F19DF3 /* AppDelegate.swift */; };
 		960E6B9C24994E8A00F19DF3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 960E6B9B24994E8A00F19DF3 /* GameScene.sks */; };
-		960E6B9E24994E8A00F19DF3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 960E6B9D24994E8A00F19DF3 /* Actions.sks */; };
 		960E6BA024994E8A00F19DF3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6B9F24994E8A00F19DF3 /* GameScene.swift */; };
 		960E6BA224994E8A00F19DF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BA124994E8A00F19DF3 /* ViewController.swift */; };
 		960E6BA424994E8A00F19DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 960E6BA324994E8A00F19DF3 /* Assets.xcassets */; };
 		960E6BA724994E8A00F19DF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 960E6BA524994E8A00F19DF3 /* Main.storyboard */; };
 		960E6BB024994FD200F19DF3 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BAF24994FD200F19DF3 /* World.swift */; };
 		960E6BB32499502000F19DF3 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB22499502000F19DF3 /* GameObject.swift */; };
-		960E6BB5249950EA00F19DF3 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB4249950EA00F19DF3 /* Location.swift */; };
+		960E6BB5249950EA00F19DF3 /* Location2d.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB4249950EA00F19DF3 /* Location2d.swift */; };
 		960E6BB72499526100F19DF3 /* Floor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB62499526100F19DF3 /* Floor.swift */; };
 		960E6BB9249969DD00F19DF3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960E6BB8249969DD00F19DF3 /* Player.swift */; };
+		96F5ACC5249A4B6200CB19B4 /* BuildingStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F5ACC4249A4B6200CB19B4 /* BuildingStructure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		960E6B9624994E8A00F19DF3 /* mnhack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mnhack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		960E6B9924994E8A00F19DF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		960E6B9B24994E8A00F19DF3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		960E6B9D24994E8A00F19DF3 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		960E6B9F24994E8A00F19DF3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		960E6BA124994E8A00F19DF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		960E6BA324994E8A00F19DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,9 +33,10 @@
 		960E6BA924994E8A00F19DF3 /* mnhack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = mnhack.entitlements; sourceTree = "<group>"; };
 		960E6BAF24994FD200F19DF3 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		960E6BB22499502000F19DF3 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
-		960E6BB4249950EA00F19DF3 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		960E6BB4249950EA00F19DF3 /* Location2d.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location2d.swift; sourceTree = "<group>"; };
 		960E6BB62499526100F19DF3 /* Floor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floor.swift; sourceTree = "<group>"; };
 		960E6BB8249969DD00F19DF3 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		96F5ACC4249A4B6200CB19B4 /* BuildingStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingStructure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,6 @@
 				960E6BB124994FDC00F19DF3 /* Classes */,
 				960E6B9924994E8A00F19DF3 /* AppDelegate.swift */,
 				960E6B9B24994E8A00F19DF3 /* GameScene.sks */,
-				960E6B9D24994E8A00F19DF3 /* Actions.sks */,
 				960E6B9F24994E8A00F19DF3 /* GameScene.swift */,
 				960E6BA124994E8A00F19DF3 /* ViewController.swift */,
 				960E6BA324994E8A00F19DF3 /* Assets.xcassets */,
@@ -88,7 +87,8 @@
 			children = (
 				960E6BAF24994FD200F19DF3 /* World.swift */,
 				960E6BB22499502000F19DF3 /* GameObject.swift */,
-				960E6BB4249950EA00F19DF3 /* Location.swift */,
+				96F5ACC4249A4B6200CB19B4 /* BuildingStructure.swift */,
+				960E6BB4249950EA00F19DF3 /* Location2d.swift */,
 				960E6BB62499526100F19DF3 /* Floor.swift */,
 				960E6BB8249969DD00F19DF3 /* Player.swift */,
 			);
@@ -155,7 +155,6 @@
 			files = (
 				960E6B9C24994E8A00F19DF3 /* GameScene.sks in Resources */,
 				960E6BA424994E8A00F19DF3 /* Assets.xcassets in Resources */,
-				960E6B9E24994E8A00F19DF3 /* Actions.sks in Resources */,
 				960E6BA724994E8A00F19DF3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,8 +166,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				960E6BB5249950EA00F19DF3 /* Location.swift in Sources */,
+				960E6BB5249950EA00F19DF3 /* Location2d.swift in Sources */,
 				960E6BB32499502000F19DF3 /* GameObject.swift in Sources */,
+				96F5ACC5249A4B6200CB19B4 /* BuildingStructure.swift in Sources */,
 				960E6BA224994E8A00F19DF3 /* ViewController.swift in Sources */,
 				960E6BB72499526100F19DF3 /* Floor.swift in Sources */,
 				960E6BB9249969DD00F19DF3 /* Player.swift in Sources */,
