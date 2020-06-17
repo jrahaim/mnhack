@@ -48,6 +48,7 @@ class GameScene: SKScene {
     
     override func keyDown(with event: NSEvent) {
         let world = World.shared
+        let floor = world.floor(currentFloorNumber)
         let player = World.shared.player
         
         var move: Direction?
@@ -70,6 +71,17 @@ class GameScene: SKScene {
             if world.pathBlocked(floor: currentFloorNumber, location: newLocation) == false {
                 player.position = newLocation
                 self.playerNode?.position = scenePoint(location: newLocation)
+            } else if floor.structures[newLocation]?.type == .doorClosed {
+                // replace it with an open door
+                floor.structures[newLocation] = BuildingStructure(type: .doorOpen)
+                
+                let door = self.litNodes.children.first { (node) -> Bool in
+                    return (node.position == scenePoint(location: newLocation))
+                }
+                if let door = door {
+                    door.removeFromParent()
+                    addStructureNode(BuildingStructure(type: .doorOpen), newLocation)
+                }
             }
         }
         unlitNodes.children.forEach() {
@@ -97,7 +109,7 @@ class GameScene: SKScene {
                 nodes2.forEach() {
                     $0.alpha = 1.0
                 }
-                if floor.structures[pos]?.blocksPath() == true {
+                if floor.structures[pos]==nil || floor.structures[pos]?.blocksPath() == true {
                     break
                 }
             }
@@ -111,19 +123,23 @@ class GameScene: SKScene {
 }
 
 extension GameScene {
+    fileprivate func addStructureNode(_ structure: BuildingStructure, _ pos: Location2d) {
+        let node = SKLabelNode(text: structure.appearence)
+        node.fontSize = CGFloat(squareSize)
+        node.position = scenePoint(location: pos)
+        node.alpha = 0.0
+        if structure.type == .floor {
+            unlitNodes.addChild(node)
+        } else {
+            litNodes.addChild(node)
+        }
+    }
+    
     func addStructureNodes() {
         let floor = World.shared.floor(currentFloorNumber)
         floor.structures.forEach() {keyValue in
             let (pos, structure) = keyValue
-            let node = SKLabelNode(text: structure.appearence)
-            node.fontSize = CGFloat(squareSize)
-            node.position = scenePoint(location: pos)
-            node.alpha = 0.0
-            if structure.type == .floor {
-                unlitNodes.addChild(node)
-            } else {
-                litNodes.addChild(node)
-            }
+            addStructureNode(structure, pos)
         }
     }
 }

@@ -27,13 +27,17 @@ class Floor {
 extension Floor {
     // Rooms
     func createRandomRooms() {
-        let numberOfRooms = Int(arc4random_uniform(UInt32(9))) + 4
+        let numberOfRooms = Int(arc4random_uniform(UInt32(5))) + 9
         var roomRectangles = [CGRect]()
         
         for _ in (1...numberOfRooms) {
             let rect = roomRect()
             roomRectangles.append(rect)
         }
+        
+        buildHallways(between: roomRectangles)
+        buildWalls(for: roomRectangles)
+        buildFloors(for: roomRectangles)
         
         // Add Stairs up to the center of the first room
         if let rectangle = roomRectangles.first {
@@ -48,10 +52,6 @@ extension Floor {
             self.stairsDown = centerOfRoom
             self.structures[centerOfRoom] = BuildingStructure(type: .stairsDown)
         }
-        
-        buildHallways(between: roomRectangles)
-        buildWalls(for: roomRectangles)
-        buildFloors(for: roomRectangles)
         
         // And Lastly Doors
         buildDoors()
